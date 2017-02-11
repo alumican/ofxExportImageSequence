@@ -67,7 +67,7 @@ struct TiffExportOp
 		int rows_per_strip = TIFFDefaultStripSize(image, 0);
 		TIFFSetField(image, TIFFTAG_ROWSPERSTRIP, rows_per_strip);
 		
-		unsigned char* src = (unsigned char*)pix.getPixels();
+		unsigned char* src = pix.getData();
 		int strip_index = 0;
 		
 		for (int y = 0; y < height; y += rows_per_strip)
