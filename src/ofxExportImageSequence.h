@@ -164,10 +164,15 @@ public:
 		this->out_frame = out_frame;
 	}
 
-	void setOutputDir(const string& path)
+	void setOutputDir(const string& path, const int digit = 5)
 	{
-		export_path = path;
-		this->pattern = path + "/" + path + "_%05i.tif";
+		setOutputDir(path, path, digit);
+	}
+
+	void setOutputDir(const string& dir, const string& file_prefix, const int digit = 5)
+	{
+		export_path = dir;
+		this->pattern = dir + "/" + file_prefix + "_%0" + ofToString(digit) + "i.tif";
 	}
 
 	const string& getFilePattern() const { return pattern; }
